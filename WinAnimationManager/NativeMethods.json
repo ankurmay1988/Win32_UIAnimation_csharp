@@ -1,0 +1,12 @@
+{
+  "$schema": "https://aka.ms/CsWin32.schema.json",
+  "allowMarshaling": true,
+  "comInterop": {
+    "preserveSigMethods": [
+      "IUIAnimationTimerEventHandler",
+      "IUIAnimationTimerUpdateHandler",
+      "IUIAnimationTimer.SetTimerEventHandler",
+      "IUIAnimationTimer.SetTimerUpdateHandler"
+    ]
+  }
+}
