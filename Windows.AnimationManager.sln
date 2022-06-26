@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinAnimationManager", "WinAnimationManager\WinAnimationManager.csproj", "{B7A16DE8-A5F1-4997-8FD1-6616F8857B86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Windows.AnimationManager", "WinAnimationManager\Windows.AnimationManager.csproj", "{B7A16DE8-A5F1-4997-8FD1-6616F8857B86}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csproj", "{DABA2CD3-7897-4079-87C8-39FE7EA20052}"
 EndProject

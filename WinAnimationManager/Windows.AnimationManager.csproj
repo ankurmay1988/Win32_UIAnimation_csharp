@@ -5,6 +5,7 @@
 	  <LangVersion>9</LangVersion>
 	  <PlatformTarget>x86</PlatformTarget>
 	  <Platforms>x86</Platforms>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
