@@ -1,18 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-	  <LangVersion>9</LangVersion>
-	  <PlatformTarget>x86</PlatformTarget>
-	  <Platforms>x86</Platforms>
-	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.CsWin32" Version="0.2.1-beta">
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Windows.SDK.Win32Metadata" Version="23.0.2-preview" />
-  </ItemGroup>
-
+    <Sdk Name="SharpGenTools.Sdk" Version="$(SharpGenVersion)" />
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+	    <PlatformTarget>x86</PlatformTarget>
+	    <Platforms>x86</Platforms>
+	    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	</PropertyGroup>
+	
+    <ItemGroup>
+        <Using Include="System.Runtime.InteropServices" />
+        <Using Include="SharpGen.Runtime" />
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    
+        <PackageReference Include="SharpGen.RunTime.COM" Version="$(SharpGenVersion)" />
+        <SharpGenMapping Include="Mapping.xml" />
+    </ItemGroup>
 </Project>
