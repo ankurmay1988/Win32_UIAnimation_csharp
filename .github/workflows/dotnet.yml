@@ -1,0 +1,47 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+  release:
+    types: [released, prereleased]
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:    
+    # for GitVersion to work we need to unshallow checkouts
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+        
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+        
+    - name: Add github source to nuget
+      shell: pwsh
+      run: |
+        dotnet nuget add source "https://nuget.pkg.github.com/ankurmay1988/index.json" --username ankurmay1988 --password ${{ secrets.NUGETPACKAGEPAT }} --store-password-in-clear-text --name github
+    
+    - name: Build & Create Nuget Package
+      shell: pwsh
+      run: |
+        dotnet pack -c Release
+      
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.0
+      with:
+        # Artifact name
+        name: Windows.Animation
+        # A file, directory or wildcard pattern that describes what to upload
+        path: "bin\\Windows.AnimationManager\\x86\\Release\\netstandard2.0\\*.dll"
+        
+    - name: Upload to nuget.org if it's a new release
+      # if: startsWith(github.ref, 'refs/tags/')
+      shell: pwsh
+      run: |
+        Get-ChildItem Windows.AnimationManager.*.nupkg | ForEach-Object { dotnet nuget push $_.FullName --api-key ${{secrets.NUGETPACKAGEPAT}}  --source "github" }
