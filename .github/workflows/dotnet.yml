@@ -46,4 +46,5 @@ jobs:
       # if: startsWith(github.ref, 'refs/tags/')
       shell: pwsh
       run: |
+        cd "bin\\Windows.AnimationManager\\x86\\Release\\"
         Get-ChildItem Windows.AnimationManager.*.nupkg | ForEach-Object { dotnet nuget push $_.FullName --api-key ${{secrets.GITHUB_TOKEN}}  --source "github" }
