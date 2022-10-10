@@ -2,8 +2,8 @@
     <Sdk Name="SharpGenTools.Sdk" Version="$(SharpGenVersion)" />
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
-	    <PlatformTarget>x86</PlatformTarget>
-	    <Platforms>x86;AnyCPU</Platforms>
+	    <PlatformTarget>AnyCPU</PlatformTarget>
+	    <Platforms>AnyCPU</Platforms>
 	    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 	
@@ -14,7 +14,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-    
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
         <PackageReference Include="SharpGen.RunTime.COM" Version="$(SharpGenVersion)" />
         <SharpGenMapping Include="Mapping.xml" />
     </ItemGroup>
