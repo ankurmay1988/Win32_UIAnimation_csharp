@@ -40,11 +40,11 @@ jobs:
         # Artifact name
         name: Windows.Animation
         # A file, directory or wildcard pattern that describes what to upload
-        path: "bin\\Windows.AnimationManager\\x86\\Release\\netstandard2.0\\*.dll"
+        path: "bin\\Windows.AnimationManager\\Release\\netstandard2.0\\*.dll"
         
     - name: Upload to nuget.org if it's a new release
       # if: startsWith(github.ref, 'refs/tags/')
       shell: pwsh
       run: |
-        cd "bin\\Windows.AnimationManager\\x86\\Release\\"
+        cd "bin\\Windows.AnimationManager\\Release\\"
         Get-ChildItem Windows.AnimationManager.*.nupkg | ForEach-Object { dotnet nuget push $_.FullName --api-key ${{secrets.GITHUB_TOKEN}}  --source "github" }

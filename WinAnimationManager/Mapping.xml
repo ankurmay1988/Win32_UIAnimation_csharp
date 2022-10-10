@@ -50,7 +50,7 @@
     <map interface="IUIAnimationPriorityComparison2" callback="true" callback-dual="false" callback-visibility="public" />
     <map method="IUIAnimationPriorityComparison2::(.*)" hresult="true" check="false"/>
 
-    <map interface=".*Handler?" callback="true" callback-dual="true" callback-visibility="internal" />
+    <map interface=".*Handler?" callback="true" callback-dual="true" callback-visibility="public" />
     <!--<map interface="IUIAnimationStoryboardEventHandler2" callback="true" callback-dual="true" callback-visibility="internal" />
     <map interface="IUIAnimationVariableCurveChangeHandler2" callback="true" callback-dual="true" callback-visibility="internal" />
     <map interface="IUIAnimationVariableChangeHandler2" callback="true"  />

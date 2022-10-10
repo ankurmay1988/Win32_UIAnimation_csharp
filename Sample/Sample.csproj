@@ -1,10 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net48</TargetFramework>
     <PlatformTarget>x86</PlatformTarget>
-    <Platforms>x86</Platforms>
+	  <UseWindowsForms>true</UseWindowsForms>
+    <Platforms>x86;AnyCPU</Platforms>
+    <StartupObject>Sample.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
